@@ -21,9 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-##中間提出用Chat-Space
+## 中間提出用Chat-Space
 
-###作成内容
+### 作成内容
 - チャット画面のhaml & scss
 - ログイン機能の実装
   - サインアップ項目の追加

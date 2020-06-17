@@ -2,36 +2,29 @@
     .Main-Header
         .Main-Header__box
             %ul.Main-Header__box_lists
-                %li test
+                %li 
+                    = @group.name
                 %li
                     %ul.Main-Header__box_lists_members
                         Member :
-                        %li.Main-Header__box_lists_members_member 
-                        masa
-            = link_to "", {class: "Main-Header__box_edit"} do
+                        - @group.users.each do |member|
+                            %li.Main-Header__box_lists_members_member 
+                                = member.name
+            = link_to edit_group_path(@group), {class: "Main-Header__box_edit"} do
                 Edit
                 
     .Main-Middle
         .Main-Middle
             .Main-Middle__box
-                .Main-Middle__box_single
-                    %ul.Main-Middle__box_single_namelists
-                        %li.Main-Middle__box_single_namelists_name         masa
-                        %li.Main-Middle__box_single_namelists_date         2019/11/20(Wed)  17:43:01
-                    %p.Main-Middle__box_single_message
-                        こんにちは
-                .Main-Middle__box_single
-                    %ul.Main-Middle__box_single_namelists
-                        %li.Main-Middle__box_single_namelists_name         masa
-                        %li.Main-Middle__box_single_namelists_date         2019/11/20(Wed)  17:50:01
-                    %p.Main-Middle__box_single_message
-                        今日は夜から雨
-            
+                -# - @messages.each do |message|
+                = render partial: 'message', collection: @messages
+                    
     .Main-Bottom
-        %form.Main-Bottom__form
+        = form_with model: [@group, @message], html: {class: 'Main-Bottom__form'}, local: true do |form|
             .Main-Bottom__form_content
-                %input.Main-Bottom__form_content_text{:name => "text", :placeholder => "type a    message", :type => "text"}
-                %label{class: "Main-Bottom__form_content_image"}
+                = form.text_field :content, {placeholder: "type a message", class: "Main-Bottom__form_content_text"}
+                = form.label :image, {class: "Main-Bottom__form_content_image"} do
                     %i.fa.fa-images
-                    %input{type: "file"}
-            %input.Main-Bottom__form_btn{:type => "submit", :value => "SEND"}
+                    = form.file_field :image
+            = form.submit "SEND", {class: "Main-Bottom__form_btn"}
+            

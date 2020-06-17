@@ -55,12 +55,12 @@
         height: calc(100vh - 100px);
         background-color: #2f3e51;
 
-        &__box{
-            padding: 20px 20px 40px 20px;
+        &__lists{
+            font-weight: bold;
 
-            &_lists{
-                font-weight: bold;
-    
+            &_element{
+                padding: 20px 20px 40px 20px;
+            
                 &_name{
                     color: #fff;
                     font-size: 15px;
@@ -71,7 +71,6 @@
                     font-size: 11px;
                 }
             }
-
         }
 
     }
@@ -80,6 +79,7 @@
 .Main{
     width: calc(100vw - 300px);
     background-color: #fff;
+    height: 100vh;
 
     & .Main-Header{
         height: 100px;
@@ -124,7 +124,7 @@
     & .Main-Middle{
         height: calc(100vh - 190px);
         background-color: #fafafa;
-        overflow: hidden;
+        overflow: scrollscroll;
         
         &__box{
             margin-top: 35px;

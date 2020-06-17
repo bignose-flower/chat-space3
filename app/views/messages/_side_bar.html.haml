@@ -11,13 +11,13 @@
                     = link_to edit_user_path(current_user) do
                         %i.fa.fa-cog
     .Side-Main
-        .Side-Main__box
-            %ul.Side_Main__box_lists
-                - if @groups.present?
-                    - @groups.each do |group|
-                        = link_to '#' do
-                            %li.Side-Main__box_lists_name 
+        %ul.Side-Main__lists
+            - if @groups
+                - @groups.each do |group|
+                    .Side-Main__lists_element
+                        = link_to group_messages_path(group) do
+                            %li.Side-Main__lists_element_name 
                                 = group.name
-                            %li.Side-Main__box_lists_message 
-                                まだメッセージはありません。
+                            %li.Side-Main__lists_element_message 
+                                = group.show_last_message
                 

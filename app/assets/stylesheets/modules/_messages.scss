@@ -124,7 +124,7 @@
     & .Main-Middle{
         height: calc(100vh - 190px);
         background-color: #fafafa;
-        overflow: scrollscroll;
+        overflow: scroll;
         
         &__box{
             margin-top: 35px;
@@ -179,6 +179,7 @@
                     height: 50px;
                     position: absolute;
                     right: 10px;
+                    top: 0;
                 }
                 &_image > i{
                     cursor: pointer;
